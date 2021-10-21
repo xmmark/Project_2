@@ -31,19 +31,28 @@
         return size == 0;
     }
 
-    //public T pop(){
-
-    //}
+    public T pop(){
+        if(empty()){
+            return null;
+        }else{
+            T popped = head.data;
+            head = head.next;
+            size--;
+            return popped;
+        }
+    }
 
     public static void main(String[] args){
 
     LinkedStack<String> stringStack = new LinkedStack<>();
     //LinkedStack<String>.Node<String> stringNode = new LinkedStack<String>.Node<String>();
     System.out.println(stringStack.empty());
+    System.out.println(stringStack.pop());
     stringStack.push("A");
     stringStack.push("B");
     System.out.println(stringStack.head.data);
     System.out.println(stringStack.head.next.data);
+    System.out.println(stringStack.pop());
     }
 
 }
