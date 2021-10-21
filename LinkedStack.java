@@ -26,10 +26,20 @@
         }
     }
 
+    public boolean empty(){
+
+        return size == 0;
+    }
+
+    //public T pop(){
+
+    //}
+
     public static void main(String[] args){
 
     LinkedStack<String> stringStack = new LinkedStack<>();
     //LinkedStack<String>.Node<String> stringNode = new LinkedStack<String>.Node<String>();
+    System.out.println(stringStack.empty());
     stringStack.push("A");
     stringStack.push("B");
     System.out.println(stringStack.head.data);
