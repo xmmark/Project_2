@@ -53,6 +53,16 @@
     System.out.println(stringStack.head.data);
     System.out.println(stringStack.head.next.data);
     System.out.println(stringStack.pop());
+
+    LinkedStack<Integer> intStack = new LinkedStack<>();
+    //LinkedStack<String>.Node<String> stringNode = new LinkedStack<String>.Node<String>();
+    System.out.println(intStack.empty());
+    System.out.println(intStack.pop());
+    intStack.push(1);
+    intStack.push(2);
+    System.out.println(intStack.head.data);
+    System.out.println(intStack.head.next.data);
+    System.out.println(intStack.pop());
     }
 
 }
