@@ -72,13 +72,13 @@ public class LinkedStack<T>{
         stringStack.push("A");
         stringStack.push("B");
         stringStack.push("C");
-        
         System.out.println(stringStack.head.data);
         System.out.println(stringStack.pop());
         System.out.println(stringStack.head.data);
         System.out.println(stringStack.pop());
         stringStack.push("D");
         System.out.println(stringStack.head.data);
+
 
         LinkedStack<Integer> intStack = new LinkedStack<>();
         //LinkedStack<String>.Node<String> stringNode = new LinkedStack<String>.Node<String>();
