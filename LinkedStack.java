@@ -24,6 +24,12 @@ public class LinkedStack<T>{
     private Node<T> head;
     private int size = 0;
 
+    // constructor
+    public LinkedStack(){
+        this.head = null;
+    }
+
+    // functions
     // inserts data on the top of stack
     public void push(T data){
         if(size == 0){
@@ -65,11 +71,14 @@ public class LinkedStack<T>{
         System.out.println(stringStack.pop());
         stringStack.push("A");
         stringStack.push("B");
+        stringStack.push("C");
         System.out.println(stringStack.head.data);
-        System.out.println(stringStack.head.next.data);
         System.out.println(stringStack.pop());
         System.out.println(stringStack.head.data);
-        System.out.println(stringStack.head.next);
+        System.out.println(stringStack.pop());
+        stringStack.push("D");
+        System.out.println(stringStack.head.data);
+
 
         LinkedStack<Integer> intStack = new LinkedStack<>();
         //LinkedStack<String>.Node<String> stringNode = new LinkedStack<String>.Node<String>();
