@@ -24,7 +24,7 @@ public class assembler{
     }
 
     // transforms operand1 left, operand2 right and operator t into the assembly string and return
-    public String evaluate(String left, String t, String right){
+    public String[] evaluate(String left, String t, String right){
         String load = "   LD    " + left + "\n";
         
         String operator = "";
@@ -46,14 +46,21 @@ public class assembler{
         }
         String operation = "   " + operator + "    " + right + "\n";
 
-        String store = "   ST    " + "TMP" + index;
+        String TMP_Var = "TMP" + index;
+        String store = "   ST    " + TMP_Var + "\n";
         index++;
+
         String assembly = load + operation + store;
-        return assembly;
+
+        String[] r = new String[2];
+        r[0] = TMP_Var;
+        r[1] = assembly;
+        return r;
     }
 
     public void assembly(Postfix p){
         for (int i = 0; i < p.getExpr().size(); i++){
+            String temp_assembly = new String();
             String[] words = p.getExpr().get(i).split(" ");
             int j = 0;
             while (j < words.length){
@@ -64,11 +71,13 @@ public class assembler{
                 else{
                     String right = this.stack.pop();
                     String left = this.stack.pop();
-                    this.stack.push(evaluate(left, t, right));
+                    String[] temp = evaluate(left, t, right);
+                    this.stack.push(temp[0]);
+                    temp_assembly += temp[1];
                 }
                 j++;
             }
-            this.as.add(this.stack.pop());
+            this.as.add(temp_assembly);
             index = 1;
         }
     }
@@ -103,7 +112,7 @@ public class assembler{
             for (int i=0; i<a.as.size(); i++){
                 System.out.println("Infix Expression: " + a.pf.getInfix().get(i));
                 System.out.println("Postfix Expression: " + a.pf.getExpr().get(i) + "\n");
-                System.out.println(a.as.get(i)+"\n\n");
+                System.out.println(a.as.get(i)+"\n");
             }
         }
         else{
