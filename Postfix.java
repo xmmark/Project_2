@@ -12,11 +12,13 @@ public class Postfix{
     // fields
     private LinkedStack<String> stack;
     private ArrayList<String> expr;
+    private ArrayList<String> infix;
 
     // constructor
     public Postfix(){
         this.stack = new LinkedStack<String>();
         this.expr = new ArrayList<String>();
+        this.infix = new ArrayList<String>();
     }
 
     // functions
@@ -31,6 +33,7 @@ public class Postfix{
                 if (line==null){
                     break;
                 }
+                this.infix.add(line);
                 String[] words = line.split(" ");
                 for (int i=0; !words[i].equals(";"); i++){
                     if (words[i].equals(")")) {
@@ -70,6 +73,16 @@ public class Postfix{
         catch(IOException ex) {
             System.out.println("Postfix.writeFile():: error writing file " + filename);
         }
+    }
+
+    // returns the postfix expressions expr
+    public ArrayList<String> getExpr(){
+        return this.expr;
+    }
+
+    // returns the infix expressions infix
+    public ArrayList<String> getInfix(){
+        return this.infix;
     }
 
     // tests reading and writing files
