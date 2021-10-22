@@ -87,8 +87,8 @@ public class assembler{
         try {
             FileWriter a = new FileWriter(filename);
             for (int i=0; i<this.as.size(); i++){
-                a.write("Infix Expression: " + this.pf.getInfix().get(i));
-                a.write("Postfix Expression: " + this.pf.getExpr().get(i) + "\n");
+                a.write("Infix Expression: " + this.pf.getInfix().get(i).replace(";","") + "\n");
+                a.write("Postfix Expression: " + this.pf.getExpr().get(i) + "\n\n");
                 a.write(this.as.get(i) + "\n\n");
             }
             as.clear();
@@ -110,7 +110,7 @@ public class assembler{
         a.assembly(a.pf);
         if (args.length < 2){
             for (int i=0; i<a.as.size(); i++){
-                System.out.println("Infix Expression: " + a.pf.getInfix().get(i));
+                System.out.println("Infix Expression: " + a.pf.getInfix().get(i).replace(";",""));
                 System.out.println("Postfix Expression: " + a.pf.getExpr().get(i) + "\n");
                 System.out.println(a.as.get(i)+"\n");
             }
